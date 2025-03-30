@@ -1,0 +1,14 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Auto Git Push",
+            "type": "shell",
+            "command": "git add . && git commit -m 'Mise à jour automatique' && git push origin main",
+            "problemMatcher": [],
+            "runOptions": {
+                "runOn": "folderOpen"
+            }
+        }
+    ]
+}
