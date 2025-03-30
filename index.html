@@ -16,24 +16,18 @@
       color: white;
       padding: 20px;
     }
-    .image-left{
-      width: 33%; /* 1/3 de la largeur parente */
-      height: auto; /* conserve les proportions */
-      display: block; /* évite les espaces indésirables */
-      margin: 0 auto; /* centrage horizontal */
+    
+    .image-container {
+      display: flex; /* Utilisation de flexbox */
+      justify-content: space-between; /* Répartition égale de l'espace */
+      margin: 20px 0;
     }
-    .image-right{
-      width: 33%; /* 1/3 de la largeur parente */
-      height: auto; /* conserve les proportions */
-      display: block; /* évite les espaces indésirables */
-      margin: 0 auto; /* centrage horizontal */
+    
+    .image-left, .image-center, .image-right {
+      width: 30%; /* Légèrement moins que 33% pour laisser de l'espace */
+      height: auto;
     }
-    .image-center{
-      width: 33%; /* 1/3 de la largeur parente */
-      height: auto; /* conserve les proportions */
-      display: block; /* évite les espaces indésirables */
-      margin: 0 auto; /* centrage horizontal */
-    }
+    
     .logo {
       position: absolute;
       top: 40px;
@@ -48,7 +42,7 @@
     }
     
     .contenu {
-      margin-top: 60px; /* pour éviter que le contenu soit caché sous l'en-tête fixe */
+      margin-top: 100px; /* Augmenté pour l'en-tête */
       padding: 20px;
     }
     
@@ -71,20 +65,41 @@
       text-align: center;
       line-height: 20px;
     }
+    
+    /* Style pour le bouton du menu */
+    .menu button {
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      padding: 0;
+      font: inherit;
+    }
+    
+    .menu button a {
+      color: white;
+      text-decoration: none;
+    }
+    
+    .menu button:hover a {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
   <div class="en-tete">
     <img src="logo.png" class="logo" alt="Logo">
-    <div class="menu"> <button><a href="menu.html">Menu</a></button>| Contact | Aide</div>
+    <div class="menu">
+      <button><a href="menu.html">Menu</a></button> | Contact | Aide
+    </div>
   </div>
   
   <div class="contenu">
     <h1>Ma page web</h1>
-    <div >
-      <img class="image-left" src="pic1.jpg" alt="Image de gauche" style="width: 150px; height: 150px;">
-      <img class="image-center" src="pic1.jpg" alt="Image de gauche" style="width: 150px; height: 150px;">
-      <img class="image-right" src="pic1.jpg" alt="Image de gauche" style="width: 150px; height: 150px;">
+    <div class="image-container">
+      <img class="image-left" src="pic1.jpg" alt="Image de gauche">
+      <img class="image-center" src="pic1.jpg" alt="Image centrale">
+      <img class="image-right" src="pic1.jpg" alt="Image de droite">
     </div>
     <div class="encadre">
       <div class="badge">3</div>
