@@ -8,38 +8,59 @@
     }
     
     .en-tete {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #333;
-  color: white;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between; /* Aligne les éléments sur les extrémités */
-  align-items: center; /* Centre verticalement */
-}
-
-.menu-group {
-  display: flex;
-  align-items: center;
-  gap: 10px; /* Espacement entre les éléments */
-}
-
-.logo {
-  width: 100px;
-  height: auto;
-  /* position: absolute supprimé */
-}
-    
-    .menu {
       position: fixed;
-      top: 10px;
-      right: 20px;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #333;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-sizing: border-box;
+      z-index: 1000;
+    }
+    
+    .logo {
+      width: 100px;
+      height: auto;
+    }
+    
+    .menu-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .menu-separator {
+      color: rgba(255,255,255,0.5);
+    }
+    
+    .menu-item {
+      color: white;
+      text-decoration: none;
+      font-size: 0.95em;
+      transition: opacity 0.2s;
+    }
+    
+    .menu-item:hover {
+      opacity: 0.8;
+      text-decoration: underline;
+    }
+    
+    .menu-button {
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      padding: 0;
+      font: inherit;
+      font-size: 0.95em;
     }
     
     .contenu {
-      margin-top: 100px;
+      margin-top: 80px;
       padding: 20px;
     }
     
@@ -70,7 +91,6 @@
       color: #555;
     }
     
-    /* Styles pour le compteur */
     .counter-container {
       margin-top: 15px;
       display: flex;
@@ -123,85 +143,42 @@
       line-height: 20px;
     }
     
-    .menu button {
-      background: none;
-      border: none;
-      color: white;
-      cursor: pointer;
-      padding: 0;
-      font: inherit;
-    }
-    
-    .menu button a {
-      color: white;
-      text-decoration: none;
-    }
-    .menu button a:hover {
-      text-decoration: underline;
-    }
-    
-    .en-tete button[onclick] {
-      background: none;
-      border: none;
-      padding: 0;
-      cursor: pointer;
-      display: inline-block;
-    }
-    .menu-lien {
-      color: white;
-      text-decoration: none;
-      padding: 8px 12px;
-      top: 10px;;
-      right: 70px;
-    }
-    
-    .menu-lien:hover {
-      text-decoration: underline;
-    }
-    
-    .menu-bouton {
-      background: none;
-      border: none;
-      color: white;
-      cursor: pointer;
-      padding: 8px 12px;
-      font: inherit;
-      text-decoration: none;
-      display: inline-block;
-      top: 10px;
-      right: 70px;
-    }
-    
-    .menu-bouton:hover {
-      text-decoration: underline;
-    }
-    
     @media (max-width: 768px) {
       .image-blocs {
         flex-direction: column;
+      }
+      
+      .menu-container {
+        gap: 10px;
+      }
+      
+      .menu-separator {
+        display: none;
       }
     }
   </style>
 </head>
 <body>
-  <div class="en-tete">
-    <a href="menu.html" class="menu-lien">Menu</a>
-    <span>|</span>
-    <a href="contact.html" class="menu-lien">Contact</a>
-    <span>|</span>
-    <a href="aide.html" class="menu-lien">Aide</a>
-    <span>|</span>
-    <button class="menu-bouton" onclick="window.location.href='connexion.html'">
-      Connexion
-    </button>
-  </div>
+  <header class="en-tete">
+    <img src="logo.png" class="logo" alt="Logo du site">
+    
+    <nav class="menu-container">
+      <a href="menu.html" class="menu-item">Menu</a>
+      <span class="menu-separator">|</span>
+      <a href="contact.html" class="menu-item">Contact</a>
+      <span class="menu-separator">|</span>
+      <a href="aide.html" class="menu-item">Aide</a>
+      <span class="menu-separator">|</span>
+      <button class="menu-button" onclick="window.location.href='connexion.html'">
+        Connexion
+      </button>
+    </nav>
+  </header>
   
-  <div class="contenu">
+  <main class="contenu">
     <h1>Ma page web</h1>
     
-    <!-- Conteneur des 3 blocs d'images -->
     <div class="image-blocs">
-      <!-- Bloc Image 1 -->
       <div class="image-bloc">
         <img src="Pictures/pic1.jpg" alt="Description image 1">
         <p>Texte descriptif pour la première image</p>
@@ -212,7 +189,6 @@
         </div>
       </div>
       
-      <!-- Bloc Image 2 -->
       <div class="image-bloc">
         <img src="Pictures/pic1.jpg" alt="Description image 2">
         <p>Texte descriptif pour la deuxième image</p>
@@ -223,7 +199,6 @@
         </div>
       </div>
       
-      <!-- Bloc Image 3 -->
       <div class="image-bloc">
         <img src="Pictures/pic1.jpg" alt="Description image 3">
         <p>Texte descriptif pour la troisième image</p>
@@ -239,7 +214,7 @@
       <div class="badge">3</div>
       <p>Ce contenu a un badge positionné en absolu par rapport à son conteneur relatif.</p>
     </div>
-  </div>
+  </main>
 
   <script>
     // Fonctionnalité des compteurs
