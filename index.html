@@ -18,11 +18,27 @@
     }
     
     .logo {
-      position: absolute;
-      top: 20px;
-      left: 10px;
-      width: 100px;
-    }
+  position: absolute;
+  top: 20px;
+  left: 10px;
+  width: 100px;
+  display: inline-block; /* Ajouté */
+}
+
+/* Supprimez ou corrigez cette classe qui contient une erreur */
+.logo-btn {
+  text-decoration: none;
+  display: inline-block; /* Corrigé la faute de frappe */
+} 
+
+/* Modifiez ce style pour cibler le bouton du logo */
+.en-tete button[onclick] {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: inline-block; /* Assure que le bouton ne prend pas toute la largeur */
+}
     
     .menu {
       position: absolute;
