@@ -22,22 +22,7 @@
       top: 20px;
       left: 10px;
       width: 100px;
-      display: inline-block; /* Ajouté */
-    }
-
-/* Supprimez ou corrigez cette classe qui contient une erreur */
-    .logo-btn {
-      text-decoration: none;
-      display: inline-block; /* Corrigé la faute de frappe */
-    } 
-
-/* Modifiez ce style pour cibler le bouton du logo */
-    .en-tete button[onclick] {
-      background: none;
-      border: none;
-      padding: 0;
-      cursor: pointer;
-      display: inline-block; /* Assure que le bouton ne prend pas toute la largeur */
+      display: inline-block;
     }
     
     .menu {
@@ -51,7 +36,6 @@
       padding: 20px;
     }
     
-    /* Nouveau CSS pour les blocs d'images */
     .image-blocs {
       display: flex;
       justify-content: space-between;
@@ -77,6 +61,39 @@
     .image-bloc p {
       margin-top: 10px;
       color: #555;
+    }
+    
+    /* Styles pour le compteur */
+    .counter-container {
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .counter-btn {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: none;
+      background-color: #333;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .counter-btn:hover {
+      background-color: #555;
+    }
+    
+    .counter-value {
+      font-size: 18px;
+      min-width: 30px;
+      text-align: center;
     }
     
     .encadre {
@@ -116,19 +133,14 @@
       text-decoration: underline;
     }
     
-    .logo-btn {
-      text-decoration: none;
-      isplay: inline-block;
-    } 
-    .logo-btn button {
+    .en-tete button[onclick] {
       background: none;
       border: none;
       padding: 0;
       cursor: pointer;
+      display: inline-block;
     }
     
-    
-    /* Version mobile */
     @media (max-width: 768px) {
       .image-blocs {
         flex-direction: column;
@@ -139,15 +151,15 @@
 <body>
   <div class="en-tete">
     <button class="logo" onclick="window.location.href='index2.html'">
-      <img src="Pictures/biere.png" alt="Logo" width="100px" height="auto">
+      <img src="Pictures/logo.png" alt="Logo">
     </button>
     <div class="menu">
-      Contact | Aide
+      <button><a href="menu.html">Menu</a></button> | Contact | Aide
     </div>
   </div>
   
   <div class="contenu">
-    <h1>Beer's page</h1>
+    <h1>Ma page web</h1>
     
     <!-- Conteneur des 3 blocs d'images -->
     <div class="image-blocs">
@@ -155,18 +167,33 @@
       <div class="image-bloc">
         <img src="Pictures/pic1.jpg" alt="Description image 1">
         <p>Texte descriptif pour la première image</p>
+        <div class="counter-container">
+          <button class="counter-btn minus-btn">-</button>
+          <span class="counter-value">0</span>
+          <button class="counter-btn plus-btn">+</button>
+        </div>
       </div>
       
       <!-- Bloc Image 2 -->
       <div class="image-bloc">
         <img src="Pictures/pic1.jpg" alt="Description image 2">
         <p>Texte descriptif pour la deuxième image</p>
+        <div class="counter-container">
+          <button class="counter-btn minus-btn">-</button>
+          <span class="counter-value">0</span>
+          <button class="counter-btn plus-btn">+</button>
+        </div>
       </div>
       
       <!-- Bloc Image 3 -->
       <div class="image-bloc">
-        <img src="Pictures/pic1.jpg" alt="Description image 3">
+        <img src="Pictures/pic2.jpg" alt="Description image 3">
         <p>Texte descriptif pour la troisième image</p>
+        <div class="counter-container">
+          <button class="counter-btn minus-btn">-</button>
+          <span class="counter-value">0</span>
+          <button class="counter-btn plus-btn">+</button>
+        </div>
       </div>
     </div>
     
@@ -175,5 +202,28 @@
       <p>Ce contenu a un badge positionné en absolu par rapport à son conteneur relatif.</p>
     </div>
   </div>
+
+  <script>
+    // Fonctionnalité des compteurs
+    document.querySelectorAll('.counter-container').forEach(container => {
+      const minusBtn = container.querySelector('.minus-btn');
+      const plusBtn = container.querySelector('.plus-btn');
+      const counterValue = container.querySelector('.counter-value');
+      
+      let count = 0;
+      
+      minusBtn.addEventListener('click', () => {
+        if (count > 0) {
+          count--;
+          counterValue.textContent = count;
+        }
+      });
+      
+      plusBtn.addEventListener('click', () => {
+        count++;
+        counterValue.textContent = count;
+      });
+    });
+  </script>
 </body>
 </html>
