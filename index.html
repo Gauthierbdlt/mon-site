@@ -8,22 +8,29 @@
     }
     
     .en-tete {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background-color: #333;
-      color: white;
-      padding: 20px;
-    }
-    
-    .logo {
-      position: absolute;
-      top: 20px;
-      left: 10px;
-      width: 100px;
-      display: inline-block;
-    }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between; /* Aligne les éléments sur les extrémités */
+  align-items: center; /* Centre verticalement */
+}
+
+.menu-group {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espacement entre les éléments */
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+  /* position: absolute supprimé */
+}
     
     .menu {
       position: fixed;
